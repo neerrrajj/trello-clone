@@ -19,19 +19,19 @@ export type Organization = {
   name: string;
 };
 
-type NavItemProps = {
+type AccItemProps = {
   isExpanded: boolean;
   isActive: boolean;
   organization: Organization;
   onExpand: (id: string) => void;
 };
 
-export const NavItem = ({
+export const AccItem = ({
   isExpanded,
   isActive,
   organization,
   onExpand,
-}: NavItemProps) => {
+}: AccItemProps) => {
   const router = useRouter();
   const pathName = usePathname();
 
