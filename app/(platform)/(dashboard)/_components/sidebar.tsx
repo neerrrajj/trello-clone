@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Accordion } from "@/components/ui/accordion";
 
-import { AccItem, Organization } from "./acc-item";
+import { AccItem, AccItemSkeleton, Organization } from "./acc-item";
 
 interface SidebarProps {
   storageKey?: string;
@@ -51,7 +51,16 @@ export const Sidebar = ({ storageKey = "t-sidebar-state" }: SidebarProps) => {
   if (!isLoadedOrg || !isLoadedOrgList || userMemberships.isLoading) {
     return (
       <>
-        <Skeleton />
+        <div className="flex items-center justify-between mb-3">
+          <Skeleton className="pl-1 h-10 w-[40%]" />
+          <Skeleton className="h-10 w-10" />
+        </div>
+        <div className="space-y-2">
+          <AccItemSkeleton />
+          <AccItemSkeleton />
+          <AccItemSkeleton />
+          <AccItemSkeleton />
+        </div>
       </>
     );
   }
