@@ -1,8 +1,5 @@
-import { X } from "lucide-react";
-
-import { Button } from "@/components/ui/button";
-
 import { deleteBoardAction } from "@/actions/delete-board";
+import { FormDelete } from "./input-form-utils";
 
 interface BoardItemProps {
   title: string;
@@ -14,14 +11,7 @@ export const BoardItem = ({ title, id }: BoardItemProps) => {
 
   return (
     <form action={deleteBoardWithId} className="flex items-center gap-x-3">
-      <Button
-        type="submit"
-        variant="destructive"
-        size="icon"
-        className="rounded-full h-6 w-6"
-      >
-        <X className="h-4 w-4" />
-      </Button>
+      <FormDelete />
       <p>{title}</p>
     </form>
   );
