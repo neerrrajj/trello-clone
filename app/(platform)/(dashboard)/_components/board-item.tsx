@@ -1,5 +1,5 @@
 import { deleteBoardAction } from "@/actions/delete-board";
-import { FormDelete } from "./input-form-utils";
+import { FormDelete } from "../../../../components/form/form-delete";
 
 interface BoardItemProps {
   title: string;
