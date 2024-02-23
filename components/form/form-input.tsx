@@ -10,7 +10,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 import { FormErrors } from "./form-errors";
-import { FormSubmit } from "./form-submit";
 
 interface FormInputProps {
   id: string;
@@ -66,7 +65,7 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
               type={type}
               disabled={pending || disabled}
               className={cn(
-                "text-sm h-9 border-none focus-visible:ring-0 focus-visible:ring-offset-0 ",
+                "text-sm h-9 border-none focus-visible:ring-0 focus-visible:ring-offset-0 pr-0",
                 className
               )}
               aria-describedby={`${id}-error`}
@@ -76,13 +75,10 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
               variant="ghost"
               size="sm"
               disabled={pending}
-              className="hover:bg-inherit "
+              className="hover:bg-inherit text-neutral-600"
             >
               <X className="h-4 w-4" />
             </Button>
-            <FormSubmit className="rounded-r-sm rounded-l-none">
-              Create
-            </FormSubmit>
           </div>
         </div>
         <FormErrors id={id} errors={errors} />

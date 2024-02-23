@@ -1,21 +1,13 @@
-import { Form } from "../../_components/input-form";
-import { BoardItem } from "../../_components/board-item";
+import { Separator } from "@/components/ui/separator";
+import { Info } from "../../_components/info";
+import { BoardList } from "../../_components/board-list";
 
-import { db } from "@/lib/db";
-
-const OrganizationIdPage = async () => {
-  const boards = await db.board.findMany();
-
+const OrganizationIdPage = () => {
   return (
     <div className="flex flex-col space-y-4">
-      <Form />
-      {boards.length != 0 && <h1 className="text-lg font-medium ">Boards:</h1>}
-
-      <div className="space-y-4">
-        {boards.map((board) => (
-          <BoardItem key={board.id} title={board.title} id={board.id} />
-        ))}
-      </div>
+      <Info />
+      <Separator />
+      <BoardList />
     </div>
   );
 };
