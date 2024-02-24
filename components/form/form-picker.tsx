@@ -11,6 +11,7 @@ import { Skeleton } from "../ui/skeleton";
 
 import { defaultImages } from "@/constants/images";
 import { unsplash } from "@/lib/unsplash";
+import { FormErrors } from "./form-errors";
 
 interface FormPickerProps {
   id: string;
@@ -70,7 +71,9 @@ export const FormPicker = ({ id, errors }: FormPickerProps) => {
             )}
             onClick={() => {
               if (pending) return;
-              setSelectedImageId(image.id);
+              setSelectedImageId(
+                selectedImageId === image.id ? null : image.id
+              );
             }}
           >
             <input
@@ -103,6 +106,7 @@ export const FormPicker = ({ id, errors }: FormPickerProps) => {
           </div>
         ))}
       </div>
+      {!selectedImageId && <FormErrors id="image" errors={errors} />}
     </div>
   );
 };
