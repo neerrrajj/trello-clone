@@ -79,6 +79,8 @@ export const FormPopover = ({
               label="Board title"
               type="text"
               errors={fieldErrors}
+              formReset={true}
+              formBorder={true}
             />
           </div>
           <FormSubmit variant="primary" className="w-full">

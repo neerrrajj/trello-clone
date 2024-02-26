@@ -22,6 +22,8 @@ interface FormInputProps {
   className?: string;
   defaultValue?: string;
   onBlur?: () => void;
+  formReset?: boolean;
+  formBorder?: boolean;
 }
 
 export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
@@ -37,6 +39,8 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
       className,
       defaultValue = "",
       onBlur,
+      formReset,
+      formBorder,
     },
     ref
   ) => {
@@ -53,7 +57,12 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
               {label}
             </Label>
           ) : null}
-          <div className="flex border rounded-md border-gray-900 align items-center">
+          <div
+            className={cn(
+              "flex rounded-md align items-center",
+              formBorder && "border border-gray-900"
+            )}
+          >
             <Input
               onBlur={onBlur}
               defaultValue={defaultValue}
@@ -70,15 +79,17 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
               )}
               aria-describedby={`${id}-error`}
             />
-            <Button
-              type="reset"
-              variant="ghost"
-              size="sm"
-              disabled={pending}
-              className="hover:bg-inherit text-neutral-600"
-            >
-              <X className="h-4 w-4" />
-            </Button>
+            {formReset && (
+              <Button
+                type="reset"
+                variant="ghost"
+                size="sm"
+                disabled={pending}
+                className="hover:bg-inherit text-neutral-600"
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            )}
           </div>
         </div>
         <FormErrors id={id} errors={errors} />

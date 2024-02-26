@@ -82,18 +82,3 @@ BoardList.Skeleton = function SkeletonBoardList() {
     </>
   );
 };
-
-{
-  /* <Plus className="h-6 w-6 mb-2" />
-            <p className="text-sm">Create new board</p>
-            <div className="flex items-center gap-2">
-              <span className="text-xs">5 remaining</span>
-              <Hint
-                sideOffset={10}
-                side="right"
-                description={`Free Workspaces can have up to 5 open boards. For unlimited boards upgrade this workspace.`}
-              >
-                <HelpCircle className="h-3 w-3" />
-              </Hint>
-            </div> */
-}
